@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+body {
+    font-family: "EB Garamond", serif;
+}
+
+.hero-title{
+  font-family: "EB Garamond", serif;
+    
+}
+.section-title{
+    font-family: "Playfair Display", serif;
+}
+.number-font{
+  font-family: "BJCree", serif;
+  
+}
+.section-description-font {
+  font-family: "Noto Serif", serif;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Better Selection */
+::selection {
+    background: black;
+    color: white;
+}
+
+/* Smooth Rendering */
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* Hide Scrollbar (Optional) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f8f7f4;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.2);
+    border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,0.35);
+}
+
+/* Image Fade In */
+
+.fade-image {
+    opacity: 0;
+    transform: scale(1.02);
+    transition:
+        opacity 0.8s ease,
+        transform 1.2s ease;
+}
+
+.fade-image.loaded {
+    opacity: 1;
+    transform: scale(1);
+}
