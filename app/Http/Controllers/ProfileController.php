@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
-use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+use Cloudinary\Cloudinary;
 
 class ProfileController extends Controller
 {
@@ -83,17 +83,15 @@ class ProfileController extends Controller
 
         // رفع الصورة الجديدة
 
-        dd(
-            Cloudinary::upload(
-                $request->file('image')->getRealPath()
-            )
+        $cloudinary = new Cloudinary(
+            config('cloudinary.cloud_url')
         );
 
-        $user->image = $uploadedFileUrl;
+        $result = $cloudinary->uploadApi()->upload(
+            $request->file('image')->getRealPath()
+        );
 
-        $user->save();
-
-        return back()->with('success', 'Profile image updated.');
+        dd($result);
     }
 
     public function updatePassword(Request $request)
