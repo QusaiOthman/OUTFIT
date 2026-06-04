@@ -82,44 +82,12 @@ class ProfileController extends Controller
         }
 
         // رفع الصورة الجديدة
-        try {
 
-            dd([
-                'hasFile' => $request->hasFile('image'),
-
-                'file_exists' => $request->file('image') ? true : false,
-
-                'original_name' => $request->file('image')?->getClientOriginalName(),
-
-                'mime' => $request->file('image')?->getMimeType(),
-
-                'size' => $request->file('image')?->getSize(),
-
-                'real_path' => $request->file('image')?->getRealPath(),
-
-                'cloudinary_config' => config('cloudinary'),
-
-                'cloudinary_url' => env('CLOUDINARY_URL'),
-
-                'cloud_name' => env('CLOUDINARY_CLOUD_NAME'),
-
-                'api_key' => env('CLOUDINARY_KEY'),
-
-                'api_secret_exists' => !empty(env('CLOUDINARY_SECRET')),
-
-                'class_cloudinary' => class_exists(\Cloudinary\Cloudinary::class),
-
-                'class_facade' => class_exists(\CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary::class),
-
-            ]);
-        } catch (\Throwable $e) {
-
-            dd([
-                'message' => $e->getMessage(),
-                'file' => $e->getFile(),
-                'line' => $e->getLine(),
-            ]);
-        }
+        dd(
+            Cloudinary::upload(
+                $request->file('image')->getRealPath()
+            )
+        );
 
         $user->image = $uploadedFileUrl;
 
