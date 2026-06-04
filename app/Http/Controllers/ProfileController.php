@@ -82,6 +82,7 @@ class ProfileController extends Controller
         }
 
         // رفع الصورة الجديدة
+        dd(config('cloudinary'));
         $uploadedFileUrl = Cloudinary::upload(
             $request->file('image')->getRealPath(),
             [
