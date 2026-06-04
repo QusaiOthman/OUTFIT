@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class ProfileController extends Controller
 {
@@ -81,14 +82,14 @@ class ProfileController extends Controller
         }
 
         // رفع الصورة الجديدة
-        $file = $request->file('image');
+        $uploadedFileUrl = Cloudinary::upload(
+            $request->file('image')->getRealPath(),
+            [
+                'folder' => 'outfit/avatars'
+            ]
+        )->getSecurePath();
 
-        $filename = time() . '.' . $file->getClientOriginalExtension();
-
-        $file->move(public_path('storage/avatars'), $filename);
-
-        // تخزين المسار
-        $user->image = 'avatars/' . $filename;
+        $user->image = $uploadedFileUrl;
 
         $user->save();
 

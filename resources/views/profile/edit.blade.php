@@ -21,7 +21,7 @@
                         <div class="relative">
 
                             @if (auth()->user()->image)
-                                <img src="{{ asset('storage/' . auth()->user()->image) }}"
+                                <img src="{{ auth()->user()->image }}"
                                     class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-4 border-white/10">
                             @else
                                 <div
@@ -116,7 +116,8 @@
                 <div class="xl:col-span-2 space-y-8">
 
                     <!-- ACCOUNT -->
-                    <div x-data="{ editing: false }" class="bg-white rounded-[32px] border border-black/5 p-5 sm:p-6 lg:p-8">
+                    <div x-data="{ editing: false }"
+                        class="bg-white rounded-[32px] border border-black/5 p-5 sm:p-6 lg:p-8">
 
                         <div class="flex items-center justify-between mb-10">
 
@@ -257,7 +258,8 @@
                     </div>
 
                     <!-- PASSWORD -->
-                    <div x-data="{ password: false }" class="bg-white rounded-[32px] border border-black/5 p-5 sm:p-6 lg:p-8">
+                    <div x-data="{ password: false }"
+                        class="bg-white rounded-[32px] border border-black/5 p-5 sm:p-6 lg:p-8">
 
                         <div class="flex items-center justify-between mb-10">
 
@@ -318,7 +320,8 @@
                     </div>
 
                     <!-- DELETE ACCOUNT -->
-                    <div x-data="{ deleting: false }" class="bg-white rounded-[32px] border border-red-200 p-5 sm:p-6 lg:p-8">
+                    <div x-data="{ deleting: false }"
+                        class="bg-white rounded-[32px] border border-red-200 p-5 sm:p-6 lg:p-8">
 
                         <div class="flex items-center justify-between mb-8">
 
