@@ -91,7 +91,11 @@ class ProfileController extends Controller
             $request->file('image')->getRealPath()
         );
 
-        dd($result);
+        $user->image = $result['secure_url'];
+
+        $user->save();
+
+        return back()->with('success', 'Profile image updated.');
     }
 
     public function updatePassword(Request $request)
