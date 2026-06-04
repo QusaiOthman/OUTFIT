@@ -4,8 +4,13 @@ RUN apt-get update && apt-get install -y \
     git \
     unzip \
     zip \
+    curl \
     libpq-dev \
-    && docker-php-ext-install pdo_pgsql
+    && docker-php-ext-install pdo pdo_pgsql
+
+# Install Node.js 20
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
@@ -15,14 +20,13 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader
 
+# Build Vite assets
+RUN npm install
+RUN npm run build
+
 RUN a2enmod rewrite
 
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
-
-RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
-    /etc/apache2/sites-available/*.conf \
-    /etc/apache2/apache2.conf \
-    /etc/apache2/conf-available/*.conf
+RUN sed -i 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
 
 RUN chown -R www-data:www-data storage bootstrap/cache
 
