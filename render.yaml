@@ -9,6 +9,8 @@ services:
       npm install
       npm run build
       php artisan storage:link
+      php artisan storage:link || true
+      ls -la public
       php artisan config:clear
       php artisan route:clear
       php artisan view:clear
