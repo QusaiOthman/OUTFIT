@@ -100,8 +100,8 @@ class ProductController extends Controller
 
         $relatedProducts = Product::with('category', 'images')
             ->where(function ($query) use ($product) {
-                $query->where('gender', $product->gender)
-                    ->orWhere('gender', 'unisex');
+                if ($product->gender == 'unisex') return;
+                $query->where('gender', $product->gender)->orWhere('gender', 'unisex');
             })
             ->where('category_id', $product->category_id)
             ->where('id', '!=', $product->id)
