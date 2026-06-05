@@ -15,7 +15,7 @@
 
                         @if ($product->images->count())
                             <img id="main-product-image" src="{{ $product->images->first()->image_url }}"
-                                class="w-full h-full object-cover object-top sm:object-center transition-opacity duration-300">
+                                class="w-full h-auto transition-opacity duration-300">
                         @endif
 
                         <!-- Favorite -->
