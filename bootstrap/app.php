@@ -13,12 +13,15 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+
+        $middleware->trustProxies(
+            at: '*'
+        );
+
         $middleware->alias([
             'admin' => \App\Http\Middleware\AdminMiddleware::class,
-            
-            // 🔥 هذا اللي نضيفه
-            'auth:sanctum' => \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
 
+            'auth:sanctum' => \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
         ]);
     })
 
