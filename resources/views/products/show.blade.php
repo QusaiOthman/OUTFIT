@@ -14,7 +14,10 @@
                         class="relative overflow-hidden rounded-[40px] bg-gradient-to-br from-[#f8f7f4] to-[#ece7df] min-h-[420px] sm:min-h-[520px] lg:min-h-[700px] flex items-center justify-center">
 
                         @if ($product->images->count())
-                            <img id="main-product-image" src="{{ asset('storage/' . $product->images->first()->image) }}"
+                            <img id="main-product-image"
+                                src="{{ str_starts_with($product->images->first()->image, 'http')
+                                    ? $product->images->first()->image
+                                    : asset('storage/' . $product->images->first()->image) }}"
                                 class="w-full h-full object-cover object-top sm:object-center transition-opacity duration-300">
                         @endif
 
@@ -55,11 +58,10 @@
                         <div class="flex flex-wrap gap-3 mt-4">
 
                             @foreach ($product->images as $image)
-                                <button type="button"
-                                    onclick="changeImage('{{ asset('storage/' . $image->image) }}', this)"
+                                <button type="button" onclick="changeImage('{{ str_starts_with($image->image, 'http') ? $image->image : asset('storage/' . $image->image) }}', this)"
                                     class="gallery-thumb overflow-hidden rounded-2xl border transition duration-300 {{ $loop->first ? 'border-black scale-105' : 'border-[#ece5dc]' }}">
 
-                                    <img src="{{ asset('storage/' . $image->image) }}" class="w-20 h-24 object-cover">
+                                    <img src="{{ str_starts_with($image->image, 'http') ? $image->image : asset('storage/' . $image->image) }}" class="w-20 h-24 object-cover">
 
                                 </button>
                             @endforeach
@@ -296,7 +298,9 @@
 
                             <!-- Image -->
                             @if ($related->images->first())
-                                <img src="{{ asset('storage/' . $related->images->first()->image) }}"
+                                <img src="{{ str_starts_with($related->images->first()->image, 'http')
+    ? $related->images->first()->image
+    : asset('storage/' . $related->images->first()->image) }}"
                                     class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700">
                             @endif
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Cloudinary\Cloudinary;
 
 
 class CategoryController extends Controller
@@ -34,8 +35,16 @@ class CategoryController extends Controller
         // Upload image
         if ($request->hasFile('image')) {
 
-            $validated['image'] = $request->file('image')
-                ->store('categories', 'public');
+            $result = (new Cloudinary(config('cloudinary.cloud_url')))
+                ->uploadApi()
+                ->upload(
+                    $request->file('image')->getRealPath(),
+                    [
+                        'folder' => 'outfit/categories'
+                    ]
+                );
+
+            $validated['image'] = $result['secure_url'];
         }
 
         Category::create($validated);
@@ -48,8 +57,7 @@ class CategoryController extends Controller
         $category->products()->update([
             'category_id' => null
         ]);
-        if ($category->image) {
-
+        if ($category->image && !str_starts_with($category->image, 'http')) {
             Storage::disk('public')->delete($category->image);
         }
 
@@ -75,14 +83,16 @@ class CategoryController extends Controller
         // upload new image
         if ($request->hasFile('image')) {
 
-            // delete old image
-            if ($category->image) {
-                Storage::disk('public')->delete($category->image);
-            }
+            $result = (new Cloudinary(config('cloudinary.cloud_url')))
+                ->uploadApi()
+                ->upload(
+                    $request->file('image')->getRealPath(),
+                    [
+                        'folder' => 'outfit/categories'
+                    ]
+                );
 
-            // store new image
-            $validated['image'] = $request->file('image')
-                ->store('categories', 'public');
+            $validated['image'] = $result['secure_url'];
         }
 
         // update category

@@ -10,7 +10,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Storage;
-
+use Cloudinary\Cloudinary;
 
 
 use Illuminate\Http\Request;
@@ -333,12 +333,17 @@ class AdminController extends Controller
 
             foreach ($request->file('images') as $image) {
 
-                $path = $image->store('products', 'public');
+                $result = (new Cloudinary(config('cloudinary.cloud_url')))
+                    ->uploadApi()
+                    ->upload(
+                        $image->getRealPath(),
+                        [
+                            'folder' => 'outfit/products'
+                        ]
+                    );
 
                 $product->images()->create([
-
-                    'image' => $path
-
+                    'image' => $result['secure_url']
                 ]);
             }
         }
@@ -391,12 +396,17 @@ class AdminController extends Controller
 
             foreach ($request->file('images') as $image) {
 
-                $path = $image->store('products', 'public');
+                $result = (new Cloudinary(config('cloudinary.cloud_url')))
+                    ->uploadApi()
+                    ->upload(
+                        $image->getRealPath(),
+                        [
+                            'folder' => 'outfit/products'
+                        ]
+                    );
 
                 $product->images()->create([
-
-                    'image' => $path
-
+                    'image' => $result['secure_url']
                 ]);
             }
         }
@@ -435,8 +445,11 @@ class AdminController extends Controller
     {
         $image = \App\Models\ProductImage::findOrFail($id);
 
-        Storage::disk('public')->delete($image->image);
+        $image->delete();
 
+        return response()->json([
+            'success' => true
+        ]);
         $image->delete();
 
         return response()->json(['success' => true]);

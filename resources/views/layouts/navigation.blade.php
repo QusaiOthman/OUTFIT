@@ -108,8 +108,7 @@
                         <div class="w-9 h-9 lg:w-10 lg:h-10 rounded-full overflow-hidden shadow">
 
                             @if (Auth::user()->image)
-                                <img src="{{ asset('storage/' . Auth::user()->image) }}"
-                                    class="w-full h-full object-cover">
+                                <img src="{{ Auth::user()->image }}" class="w-full h-full object-cover">
                             @else
                                 <div class="w-full h-full bg-black text-white flex items-center justify-center font-bold">
 
