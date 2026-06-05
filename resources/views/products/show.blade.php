@@ -11,11 +11,11 @@
 
                     <!-- Main Image -->
                     <div
-                        class="relative overflow-hidden rounded-[40px] bg-gradient-to-br from-[#f8f7f4] to-[#ece7df] min-h-[420px] sm:min-h-[520px] lg:min-h-[700px] flex items-center justify-center">
+                        class="relative overflow-hidden rounded-[40px] bg-gradient-to-br from-[#f8f7f4] to-[#ece7df] aspect-[4/5]">
 
                         @if ($product->images->count())
                             <img id="main-product-image" src="{{ $product->images->first()->image_url }}"
-                                class="w-full h-auto transition-opacity duration-300">
+                                class="w-full h-full object-cover object-top sm:object-center transition-opacity duration-300">
                         @endif
 
                         <!-- Favorite -->
