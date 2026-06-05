@@ -339,7 +339,7 @@
                                     <div class="w-16 h-16 rounded-[18px] overflow-hidden bg-[#f3f1ec] flex-shrink-0">
 
                                         @if ($item->product->images->first())
-                                            <img src="{{ $item->product->images->first()->image_url) }}"
+                                            <img src="{{ $item->product->images->first()->image_url }}"
                                                 class="w-full h-full object-cover">
                                         @endif
 
