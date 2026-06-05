@@ -77,7 +77,7 @@
                                 <div class="flex items-center gap-5">
 
                                     @if ($category->image)
-                                        <img src="{{ asset('storage/' . $category->image) }}"
+                                        <img src="{{ $category->image_url }}"
                                             class="w-16 h-16 md:w-20 md:h-20 rounded-2xl object-cover">
                                     @endif
 

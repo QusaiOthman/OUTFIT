@@ -163,7 +163,7 @@
                     @foreach ($product->images as $image)
                         <div class="relative image-card">
 
-                            <img src="{{ str_starts_with($image->image, 'http') ? $image->image : asset('storage/' . $image->image) }}"
+                            <img src="{{ $image->image_url }}"
                                 class="w-[110px] h-[140px] md:w-[140px] md:h-[170px] object-cover rounded-2xl md:rounded-3xl border border-[#ece5dc]">
 
                             <button type="button" onclick="deleteImage({{ $image->id }}, this)"

@@ -29,7 +29,7 @@
 
                             <!-- Background -->
                             @if ($order->items->first()?->product?->images->first())
-                                <img src="{{ asset('storage/' . $order->items->first()->product->images->first()->image) }}"
+                                <img src="{{ $order->items->first()->product->images->first()->image_url }}"
                                     class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700">
                             @endif
 
@@ -88,7 +88,7 @@
                                                 class="w-12 h-12 sm:w-14 sm:h-14 rounded-[14px] sm:rounded-[16px] overflow-hidden border border-white/10 bg-white/10 backdrop-blur-md">
 
                                                 @if ($item->product && $item->product->images->first())
-                                                    <img src="{{ asset('storage/' . $item->product->images->first()->image) }}"
+                                                    <img src="{{ $item->product->images->first()->image_url }}"
                                                         class="w-full h-full object-cover">
                                                 @endif
 

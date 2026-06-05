@@ -112,4 +112,12 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return 'Standard';
     }
+    public function getImageUrlAttribute()
+    {
+        return $this->image
+            ? (str_starts_with($this->image, 'http')
+                ? $this->image
+                : asset('storage/' . $this->image))
+            : null;
+    }
 }

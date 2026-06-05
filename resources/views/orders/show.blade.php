@@ -22,7 +22,7 @@
 
                 <!-- Background -->
                 @if ($order->items->first()?->product?->images->first())
-                    <img src="{{ asset('storage/' . $order->items->first()->product->images->first()->image) }}"
+                    <img src="{{ $order->items->first()->product->images->first()->image_url }}"
                         class="absolute inset-0 w-full h-full object-cover">
                 @endif
 
@@ -83,7 +83,7 @@
                             <div class="w-full sm:w-[170px] flex items-center justify-center shrink-0">
 
                                 @if ($item->product && $item->product->images->first())
-                                    <img src="{{ asset('storage/' . $item->product->images->first()->image) }}"
+                                    <img src="{{ $item->product->images->first()->image_url }}"
                                         class="w-full sm:w-[170px] h-[240px] sm:h-[190px] rounded-[18px] sm:rounded-[24px] object-cover bg-[#f3f1ec]">
                                 @endif
 

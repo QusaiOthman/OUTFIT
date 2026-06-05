@@ -477,7 +477,7 @@
                                 <div class="flex items-center gap-5">
 
                                     @if ($item->product && $item->product->images->first())
-                                        <img src="{{ asset('storage/' . $item->product->images->first()->image) }}"
+                                        <img src="{{ $item->product->images->first()->image_url }}"
                                             class="w-16 h-20 md:w-20 md:h-24 rounded-2xl object-cover">
                                     @endif
 

@@ -144,7 +144,7 @@
 
                             <!-- Background Image -->
                             @if ($product->images->first())
-                                <img src="{{ asset('storage/' . $product->images->first()->image) }}"
+                                <img src="{{ $product->images->first()->image_url }}"
                                     class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000 ease-out">
                             @endif
                             <!-- Overlay -->

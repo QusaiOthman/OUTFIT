@@ -97,7 +97,7 @@
                         <div class="absolute inset-0">
 
                             @if ($cat->image)
-                                <img src="{{ asset('storage/' . $cat->image) }}"
+                                <img src="{{ $cat->image_url }}"
                                     class="w-full h-full object-cover object-top sm:object-center transition duration-700 group-hover:scale-105">
                             @else
                                 <div class="w-full h-full bg-gradient-to-br from-[#ece7df] via-[#f5f2ec] to-[#e9e4dc]">

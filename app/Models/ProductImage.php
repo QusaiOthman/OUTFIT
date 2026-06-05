@@ -15,4 +15,10 @@ class ProductImage extends Model
     {
         return $this->belongsTo(Product::class);
     }
+    public function getImageUrlAttribute()
+    {
+        return str_starts_with($this->image, 'http')
+            ? $this->image
+            : asset('storage/' . $this->image);
+    }
 }

@@ -50,7 +50,7 @@
                     Current Image
                 </label>
 
-                <img src="{{ asset('storage/' . $category->image) }}"
+                <img src="{{ $category->image_url }}"
                     class="w-28 h-28 md:w-40 md:h-40 object-cover rounded-2xl md:rounded-3xl border border-[#ece5dc]">
 
             </div>

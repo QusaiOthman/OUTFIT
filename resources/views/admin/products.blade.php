@@ -182,7 +182,7 @@
                 <div class="flex flex-col sm:flex-row sm:items-center gap-5">
 
                     @if ($bestSeller && $bestSeller->images->first())
-                        <img src="{{ asset('storage/' . $bestSeller->images->first()->image) }}"
+                        <img src="{{ $bestSeller->images->first()->image_url }}"
                             class="w-20 h-20 md:w-24 md:h-24 rounded-2xl object-cover">
                     @endif
                     <div>
@@ -217,7 +217,7 @@
                 <div class="flex flex-col sm:flex-row sm:items-center gap-5">
 
                     @if ($highestRevenueProduct && $highestRevenueProduct->images->first())
-                        <img src="{{ asset('storage/' . $highestRevenueProduct->images->first()->image) }}"
+                        <img src="{{ $highestRevenueProduct->images->first()->image_url }}"
                             class="w-20 h-20 md:w-24 md:h-24 rounded-2xl object-cover">
                     @endif
 
@@ -489,7 +489,7 @@
                                 <div class="flex items-center gap-4 min-w-[250px]">
                                     @if ($product->images->first())
                                         <a href="{{ route('products.show', $product->id) }}">
-                                            <img src="{{ asset('storage/' . $product->images->first()->image) }}"
+                                            <img src="{{ $product->images->first()->image_url }}"
                                                 class="w-20 h-24 object-cover rounded-2xl">
                                         </a>
                                     @endif

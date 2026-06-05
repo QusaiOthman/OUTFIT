@@ -619,7 +619,7 @@
                     <div class="flex flex-col md:flex-row md:items-center gap-5 bg-[#faf7f3] rounded-[28px] p-5">
 
                         @if ($item->product->images->first())
-                            <img src="{{ asset('storage/' . $item->product->images->first()->image) }}"
+                            <img src="{{ $item->product->images->first()->image_url }}"
                                 class="w-20 h-20 md:w-24 md:h-24 rounded-[22px] object-cover">
                         @endif
                         <div class="flex-1">
@@ -706,7 +706,7 @@
                     <div class="flex flex-col md:flex-row md:items-center gap-5 bg-[#faf7f3] rounded-[28px] p-5">
 
                         @if ($item->product->images->first())
-                            <img src="{{ asset('storage/' . $item->product->images->first()->image) }}"
+                            <img src="{{ $item->product->images->first()->image_url }}"
                                 class="w-24 h-24 rounded-[22px] object-cover">
                         @endif
                         <div class="flex-1">
@@ -789,7 +789,7 @@
                         <div class="flex flex-col md:flex-row md:items-center gap-5 bg-[#faf7f3] rounded-[24px] p-4">
 
                             @if ($item->product->images->first())
-                                <img src="{{ asset('storage/' . $item->product->images->first()->image) }}"
+                                <img src="{{ $item->product->images->first()->image_url }}"
                                     class="w-20 h-20 rounded-2xl object-cover">
                             @endif
                             <div class="flex-1">

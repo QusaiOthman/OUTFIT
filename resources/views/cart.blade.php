@@ -65,7 +65,7 @@
                                             class="w-20 h-20 sm:w-24 sm:h-24 rounded-[18px] sm:rounded-[22px] overflow-hidden bg-[#f3f1ec] flex-shrink-0">
 
                                             @if ($item->product->images->first())
-                                                <img src="{{ asset('storage/' . $item->product->images->first()->image) }}"
+                                                <img src="{{ $item->product->images->first()->image_url }}"
                                                     class="w-full h-full object-cover">
                                             @endif
 
@@ -402,7 +402,7 @@
 
                                 <!-- Image -->
                                 @if ($product->images->first())
-                                    <img src="{{ asset('storage/' . $product->images->first()->image) }}"
+                                    <img src="{{ $product->images->first()->image_url }}"
                                         class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition duration-1000 ease-out">
                                 @endif
 

@@ -16,4 +16,10 @@ class Category extends Model
         'name',
         'image',
     ];
+    public function getImageUrlAttribute()
+    {
+        return str_starts_with($this->image, 'http')
+            ? $this->image
+            : asset('storage/' . $this->image);
+    }
 }
