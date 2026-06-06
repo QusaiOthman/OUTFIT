@@ -1,4 +1,12 @@
 <x-app-layout>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=BJCree:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap"rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@1,100..900&display=swap" rel="stylesheet">
 
 
     <!-- HERO -->
@@ -394,8 +402,7 @@
 
                     <!-- Background Image -->
                     <div class="absolute inset-0">
-                        <img src="{{ $cat->image_url }}" alt=""
-                            class="w-full h-full object-cover">
+                        <img src="{{ $cat->image_url }}" alt="" class="w-full h-full object-cover">
 
                     </div>
                     <!-- Overlay -->
