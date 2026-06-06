@@ -19,27 +19,45 @@
             <div class="space-y-5 sm:space-y-8 text-[#555] text-[15px] sm:text-[17px] leading-7 sm:leading-[34px]">
 
                 <p>
-                    At OUTFIT, we value your privacy and are committed to protecting your personal information.
+                    At OUTFIT, we respect your privacy and are committed to protecting your personal information.
                 </p>
 
                 <p>
-                    We collect only the necessary information required to process your orders, improve your shopping
-                    experience, and provide customer support.
+                    When you create an account, place an order, subscribe to our newsletter, or contact us, we may
+                    collect information such as your name, email address, phone number, and shipping address.
                 </p>
 
                 <p>
-                    Your personal data such as name, email address, phone number, and shipping address will never be
-                    sold or shared with third parties without your consent.
+                    This information is used solely to process and manage orders, provide customer support, improve our
+                    services, and send important account and order-related notifications.
                 </p>
 
                 <p>
-                    Payment information is processed securely through protected payment systems. We do not store
-                    sensitive card details on our servers.
+                    We do not sell, rent, or share your personal information with third parties for marketing purposes.
                 </p>
 
                 <p>
-                    By using our website, you agree to the collection and use of information in accordance with this
-                    policy.
+                    Payment information is processed through secure systems. OUTFIT does not store full payment card
+                    details on its servers.
+                </p>
+
+                <p>
+                    Our website may use cookies and similar technologies to enhance functionality, improve performance,
+                    and provide a better browsing experience.
+                </p>
+
+                <p>
+                    Users may update or delete their account information at any time through their profile settings or
+                    by contacting support.
+                </p>
+
+                <p>
+                    We reserve the right to update this Privacy Policy when necessary. Any changes will be reflected on
+                    this page.
+                </p>
+
+                <p class="text-[#9c8772] text-sm">
+                    Last Updated: June 2026
                 </p>
 
             </div>

@@ -19,25 +19,41 @@
             <div class="space-y-5 sm:space-y-8 text-[#555] text-[15px] sm:text-[17px] leading-7 sm:leading-[34px]">
 
                 <p>
-                    We want you to be completely satisfied with your purchase from OUTFIT.
+                    At OUTFIT, customer satisfaction is important to us.
                 </p>
 
                 <p>
-                    Customers may request a return or exchange within 7 days of receiving their order, provided that the
-                    items are unused, undamaged, and in their original condition.
+                    If you experience any issue with your order, please contact our support team as soon as possible so
+                    we can review your request.
                 </p>
 
                 <p>
-                    Products that show signs of wear, damage, or alteration may not be eligible for return.
+                    Return and exchange requests are evaluated on a case-by-case basis depending on the condition of the
+                    product and the circumstances of the order.
                 </p>
 
                 <p>
-                    Shipping fees are non-refundable unless the return is caused by a damaged or incorrect item.
+                    To be eligible for a return or exchange, items should be unused, undamaged, and returned in their
+                    original condition whenever applicable.
                 </p>
 
                 <p>
-                    Once the returned item is inspected and approved, the refund will be processed within a few business
-                    days.
+                    Shipping fees are generally non-refundable unless the issue was caused by an incorrect or defective
+                    item.
+                </p>
+
+                <p>
+                    OUTFIT reserves the right to refuse return or exchange requests that do not meet the requirements
+                    outlined in this policy.
+                </p>
+
+                <p>
+                    For assistance regarding returns, exchanges, or order issues, please contact our support team
+                    through the contact methods provided on the website.
+                </p>
+
+                <p class="text-[#9c8772] text-sm">
+                    Last Updated: June 2026
                 </p>
 
             </div>

@@ -31,12 +31,15 @@ class ImportProductSizes extends Command
 
         foreach ($sizes as $size) {
 
-            DB::table('product_sizes')->insert([
-                'product_id' => $size['product_id'],
-                'size'       => $size['size'],
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
+            DB::table('product_sizes')->updateOrInsert(
+                [
+                    'product_id' => $size['product_id'],
+                    'size' => $size['size'],
+                ],
+                [
+                    'updated_at' => now(),
+                ]
+            );
 
             $count++;
         }

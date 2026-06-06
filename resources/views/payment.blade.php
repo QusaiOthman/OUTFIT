@@ -132,6 +132,30 @@
 
                         </div>
 
+                        <div class="mb-6 rounded-[22px] border border-amber-200 bg-amber-50 px-5 py-4">
+                            <div class="flex items-start gap-3">
+
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor"
+                                    class="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 9v3.75m0 3.75h.007v.008H12v-.008Zm8.25-3.75a8.25 8.25 0 1 1-16.5 0 8.25 8.25 0 0 1 16.5 0Z" />
+                                </svg>
+
+                                <div>
+                                    <p class="font-semibold text-amber-800 mb-1">
+                                        Demo Payment System
+                                    </p>
+
+                                    <p class="text-sm text-amber-700 leading-relaxed">
+                                        This website is currently running in demonstration mode.
+                                        No real payment will be processed and no charges will be made.
+                                        You may enter any sample card details to complete the checkout experience.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
                         <!-- Payment -->
                         <div>
 
@@ -302,7 +326,8 @@
                 </div>
 
                 <!-- Summary -->
-                <div class="bg-white rounded-[24px] sm:rounded-[32px] border border-black/5 p-5 sm:p-8 xl:sticky xl:top-24">
+                <div
+                    class="bg-white rounded-[24px] sm:rounded-[32px] border border-black/5 p-5 sm:p-8 xl:sticky xl:top-24">
 
                     <h2 class="hero-title text-[24px] sm:text-[32px] text-[#1f1f1f] mb-6 sm:mb-8">
 
@@ -367,7 +392,8 @@
                                 <!-- Price -->
                                 <span class="number-font text-[18px] text-[#1f1f1f]">
 
-                                    {{ number_format($item->product->price * $item->quantity, 2) }}<span class="text-[6px] sm:text-[8px]">SAR</span>
+                                    {{ number_format($item->product->price * $item->quantity, 2) }}<span
+                                        class="text-[6px] sm:text-[8px]">SAR</span>
 
                                 </span>
 
